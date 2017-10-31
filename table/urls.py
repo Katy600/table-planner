@@ -5,7 +5,9 @@ from table.views import view_guest_list
 from . import views
 
 urlpatterns = [
-	url(r'^$', view_guest_list, name='table_plan'),
+	url(r'^$', view_guest_list, name='guest_list'),
+	url(r'^search-guests/$', views.search_guests, name='search_guests'),
+	url(r'^search/$', views.search),
 ]
 
 # if settings.DEBUG:
