@@ -4,6 +4,10 @@ As a dinner-party planner,
 I want to enter people into a system, 
 So that I know who is present at dinner. 
 
+As a dinner-part planner, 
+I want an error message if the same name is entered more then once,
+So that there are no duplicates. 
+
 As a dinner-party planner,
 I want guests to be assigned a number, 
 So that they know where to sit on the table. 
