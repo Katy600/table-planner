@@ -18,10 +18,15 @@ def search_guests(request):
 	return TemplateResponse(request, 'search_guests.html', {'guestlist': GuestList.objects.all()})
 
 def search(request):
-	if 'name' in request.GET and request.GET['name']:
+	error = False
+	if 'name' in request.GET:
 		name = request.GET['name']
-		guests = GuestList.objects.filter(first_name__icontains=name)
-		return render(request, 'table/see_results.html',
-						{'guests':guests, 'name': name})
-	else:
-		return HttpResponse("Please enter a guest's name.")
+		if not name:
+			error = True
+			return render( request, 'table/search_guests.html', {'error' : error})
+		else:
+			guests = GuestList.objects.filter(first_name__icontains=name)
+			return render(request, 'table/see_results.html',
+						{'guests': guests, 'name': name})
+
+			

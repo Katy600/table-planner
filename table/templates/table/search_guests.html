@@ -3,6 +3,9 @@
 	<title>Search</title>
 </head>
 <body>
+	{% if error %}
+		<p style="color: red;">Please enter a guests name.</p>
+	{% endif %}
 	<form action="/search/" method="get">
 		<input type="text" name="name">
 		<input type="submit" value="Search">
