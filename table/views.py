@@ -18,12 +18,15 @@ def search_guests(request):
 	return TemplateResponse(request, 'search_guests.html', {'guestlist': GuestList.objects.all()})
 
 def search(request):
-	error = False
+	errors = []
 	if 'name' in request.GET:
 		name = request.GET['name']
 		if not name:
-			error = True
-			return render( request, 'table/search_guests.html', {'error' : error})
+			errors.append('Enter a guests name.')
+			return render( request, 'table/search_guests.html', {'errors' : errors})
+		elif len(name) > 20:
+			errors.append('Please enter at most 20 characters.')
+			return render( request, 'table/search_guests.html', {'errors' : errors})
 		else:
 			guests = GuestList.objects.filter(first_name__icontains=name)
 			return render(request, 'table/see_results.html',
