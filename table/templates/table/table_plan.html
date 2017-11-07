@@ -6,4 +6,8 @@
 			<p>{{ forloop.counter }}: {{ first_name.first_name }}</p>
 	 {%endfor %}
 	</div>
+
+  <form action="/create-new-guest/">
+  <input type="submit" value="Add More Guests">
+  </form>
 {% endblock %}
