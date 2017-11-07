@@ -1,19 +1,16 @@
-<html>
-	<head>
-		<title>Guest List Search</title>
-	</head>
-	<body>
-		<p>You searched for: <strong>{{ name }}</strong></p>
+{% extends 'table/base.html' %}
 
-		{% if guests %}
-			<p>Found {{ guests|length}} guest{{guests|pluralize}}.</p>
-			<ul>
-				{% for guest in guests %}
-				<li>{{ guest.first_name }}</li>
-				{% endfor %}
-			</ul>
-		{% else %}
-			<p>No guests matched your search</p>
-		{% endif %}
-	</body>
-</html>
+{% block content %}
+	<p>You searched for: <strong>{{ name }}</strong></p>
+
+	{% if guests %}
+		<p>Found {{ guests|length}} guest{{guests|pluralize}}.</p>
+		<ul>
+			{% for guest in guests %}
+			<li>{{ guest.first_name }}</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>No guests matched your search</p>
+	{% endif %}
+{% endblock %}

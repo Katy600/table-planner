@@ -1,0 +1,26 @@
+body {
+	/*background-image: url('http://starchop.altervista.org/wp-content/uploads/2015/02/Abstract-Blue-Lights-HD-Wallpaper.jpg');*/
+	/*background-image: url('https://images5.alphacoders.com/380/380541.jpg');*/
+	/*background-image: url('https://www.photohdx.com/images/2016/03/grey-soft-fabric-background-texture.jpg');*/
+	font-family: 'Orbitron', sans-serif;
+	font-size: 30px;
+	color: #43A6E8;
+	background-color: #F3F3F3;
+}
+
+.css-selector{
+	font-family: 'Monoton', cursive;
+    font-size: 260px;
+    color: white;
+}
+
+.page-header {
+    background-color:rgba(0,191,255,0.5);
+    margin-top: 0;
+    padding: 30px 30px 30px 50px;
+}
+
+ul p {
+	color: hotpink;
+}
+

@@ -1,22 +1,18 @@
-<html>
-<head>
-	<title>Enter new guest</title>
-</head>
-<body>
-	<h1>Enter new guest</h1>
+{% extends 'table/base.html' %}
+{% block content %}
+<h1>Enter new guest</h1>
 
-	{% if form.errors %}
-		<p style="color: red;">
-			Please correct the error{{ form.errors|pluralize }} below.
-		</p>
-	{% endif %}
+{% if error %}
+	<p style="color: red;">
+		This name already exists! Please enter another one.
+	</p>
+{% endif %}
 
-	<form action="" method="post" novalidate>
-		<table>
-			{{ form.as_table }}
-		</table>
-		{% csrf_token %}
-		<input type="submit" value="Submit">
-	</form>
-</body>
-</html>
+<form action="" method="post">
+	<table>
+		{{ form.as_p }}
+	</table>
+	{% csrf_token %}
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}
