@@ -8,11 +8,19 @@
 	</p>
 {% endif %}
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <form action="" method="post">
 	<table>
 		{{ form.as_p }}
 	</table>
 	{% csrf_token %}
-	<input type="submit" value="Submit">
+	<input type="submit" value="Add Guest">
 </form>
 {% endblock %}

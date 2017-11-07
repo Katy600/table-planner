@@ -10,7 +10,11 @@ So that there are no duplicates.
 
 As a dinner-party planner,
 I want guests to be assigned a number, 
-So that they know where to sit on the table. 
+So that they know where to sit on the table.
+
+As a dinner-party planner,
+I want to be able to delete a guests from the guest list if plans change 
+So that the guestlist is accurate.
 
 As a dinner-party planner,
 I want to generate a new table plan for each meal, 

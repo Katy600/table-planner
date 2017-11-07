@@ -9,15 +9,13 @@ import datetime
 from table.forms import CreateNewGuests
 from django.core import validators
 from django import forms
-
+from django.contrib import messages
 
 def view_guest_list(request):
   guestlist = GuestList.objects.all()
-  # return render(request, 'table/table_plan.html')
-  return TemplateResponse(request, 'table_plan.html', {'guestlist': GuestList.objects.all()})
+  return TemplateResponse(request, 'table_plan.html', {'guestlist': guestlist})
 
 def search_guests(request):
-# return render(request, 'table/search_guests.html')
   return TemplateResponse(request, 'search_guests.html', {'guestlist': GuestList.objects.all()})
 
 def search(request):
@@ -50,10 +48,10 @@ def new_guests(request):
       elif error == False:
         guest_entered = GuestList(first_name=guest, spouse=spouse)
         guest_entered.save()
+        messages.success(request, 'A new guest %s has been added.' % guest_entered)
         return HttpResponseRedirect('/create-new-guest/completed/')
   else:
       form = CreateNewGuests()
-   
       return render(request, 'enter_guest_details.html', {'form': form, 'error': error})
 
 
