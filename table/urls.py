@@ -10,7 +10,5 @@ urlpatterns = [
 	url(r'^search/$', views.search),
 	url(r'^create-new-guest/$', views.new_guests, name='new_guest'),
 	url(r'^create-new-guest/completed/$', views.new_guests, name='completed'),
+	url(r'^delete-guest/$', views.delete,  name='delete_items')
 ]
-
-# if settings.DEBUG:
-# 	urlpatterns += [url(r'debuginfo/$', views.debug),]

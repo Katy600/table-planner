@@ -30,8 +30,7 @@ def search(request):
       return render( request, 'table/search_guests.html', {'errors' : errors})
     else:
       guests = GuestList.objects.filter(first_name__icontains=name)
-      return render(request, 'table/see_results.html',
-            {'guests': guests, 'name': name})
+      return render(request, 'table/see_results.html', {'guests': guests, 'name': name})
 
 def new_guests(request):
   error = False
@@ -53,6 +52,25 @@ def new_guests(request):
   else:
       form = CreateNewGuests()
       return render(request, 'enter_guest_details.html', {'form': form, 'error': error})
+
+def delete(request):
+  if 'delete_guest' in request.GET:
+   message = 'You are deleting: %r' % request.GET['delete_guest']
+   guest = request.GET['delete_guest']
+   print('guest', guest)
+   print('message', message)
+   guest_list = GuestList.objects.filter(first_name__icontains=guest).delete()
+   print(guest_list)
+   return render(request, 'table/table_plan.html', {'message': message, 'guest': guest})
+
+  # guestlist = GuestList.objects.all()
+  # if request.method == 'POST':
+  #     # Fetch list of items to delete, by ID
+  #     items_to_delete = request.POST.getlist('delete_items')
+  #     # Delete those items all in one go
+  #     GuestList.objects.filter(pk__in=items_to_delete).delete()
+  # return render(request, 'table/table_plan.html', {'guestlist': guestlist, 'items_to_delete': items_to_delete})
+
 
 
       

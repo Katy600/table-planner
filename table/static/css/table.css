@@ -1,7 +1,7 @@
 body {
 	/*background-image: url('http://starchop.altervista.org/wp-content/uploads/2015/02/Abstract-Blue-Lights-HD-Wallpaper.jpg');*/
 	/*background-image: url('https://images5.alphacoders.com/380/380541.jpg');*/
-	background-image: url('https://i.pinimg.com/originals/94/72/d7/9472d7ba214a80b5caf100b75ea8eaa0.jpg');
+	background-image: url('http://www.textileexpressfabrics.co.uk/WebRoot/BT4/Shops/BT3246/5475/DF27/29C2/E329/5EE9/0A0C/05EA/9356/white_hessian.jpg');
 	font-family: 'Orbitron', sans-serif;
 	font-size: 30px;
 	color: #43A6E8;
@@ -22,5 +22,10 @@ body {
 
 ul p {
 	color: hotpink;
+}
+
+.box {
+	background-color:rgba(227,227,227, 0.8);
+ 
 }
 

@@ -8,6 +8,27 @@
 	</div>
 
   <form action="/create-new-guest/">
-  <input type="submit" value="Add More Guests">
+    <input type="submit" value="Add More Guests">
   </form>
+
+  <!-- {{message}}
+   {{guest}} -->
+  <form action="/delete-guest/" method="get">
+    <input type="text" name="delete_guest">
+    <input type="submit" value="Delete Guest">
+  </form>
+
+  <form action="/">
+    <input type="submit" value="View Guests">
+  </form>
+
+
+ <!--  {% for guest in guestlist %}
+    <form action="/delete-guest/", name='delete_guest' method='GET'>
+        {% csrf_token %}    
+      <input type="submit" value="Delete {{ guest.pk }}">
+    </form>
+  {% endfor %} -->
+
+
 {% endblock %}
