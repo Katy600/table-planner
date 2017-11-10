@@ -1,8 +1,6 @@
 {% extends 'table/base.html' %}
 
 {% block content %}
- 
-
   <table border="1" class="table-font">
     <thread>
       <tr>
@@ -21,10 +19,11 @@
         {% endfor %}
     </tbody>
   </table>
-
-
   <form action="/create-new-guest/">
     <input type="submit" value="Add More Guests">
   </form>
 
+   <form action="/">
+    <input type="submit" value="Random">
+  </form>
 {% endblock %}

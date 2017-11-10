@@ -14,7 +14,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView,ListView
 
 def view_guest_list(request):
-  guestlist = GuestList.objects.all()
+  guestlist = GuestList.objects.order_by('?')
   return TemplateResponse(request, 'table_plan.html', {'guestlist': guestlist})
 
 def search_guests(request):
@@ -71,6 +71,8 @@ def update(request, id):
   guest.spouse = request.POST['spouse']
   guest.save()
   return redirect('/')
+
+
 
 
 
