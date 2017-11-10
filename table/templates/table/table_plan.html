@@ -1,16 +1,8 @@
 {% extends 'table/base.html' %}
 
 {% block content %}
-  <form action="/create-new-guest/">
-    <input type="submit" value="Add More Guests">
-  </form>
+ 
 
-  <form action="/delete-guest/" method="get">
-    <input type="text" name="delete_guest">
-    <input type="submit" value="Delete Guest">
-  </form>
-
-<div>
   <table border="1" class="table-font">
     <thread>
       <tr>
@@ -29,15 +21,10 @@
         {% endfor %}
     </tbody>
   </table>
-</div>
 
 
- <!--  {% for guest in guestlist %}
-    <form action="/delete-guest/", name='delete_guest' method='GET'>
-        {% csrf_token %}    
-      <input type="submit" value="Delete {{ guest.pk }}">
-    </form>
-  {% endfor %} -->
-
+  <form action="/create-new-guest/">
+    <input type="submit" value="Add More Guests">
+  </form>
 
 {% endblock %}

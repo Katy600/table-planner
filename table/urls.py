@@ -10,7 +10,8 @@ urlpatterns = [
 	url(r'^search/$', views.search),
 	url(r'^create-new-guest/$', views.new_guests, name='new_guest'),
 	url(r'^create-new-guest/completed/$', views.new_guests, name='completed'),
-	url(r'^delete-guest/(?P<id>\d+)$', views.delete,  name='delete_guest'),
+	url(r'^delete-guest/(?P<id>\d+)$', views.destroy,  name='delete_guest'),
 	url(r'^edit-guest/(?P<id>\d+)$', views.guest_edit, name='edit_guest'),
 	url(r'^update/(?P<id>\d+)$', views.update)
+
 ]
