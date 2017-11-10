@@ -67,7 +67,7 @@ def guest_edit(request, id):
 
 def update(request, id):
   guest = GuestList.objects.get(id=id)
-  guest.first_name = request.POST['name']
+  guest.name = request.POST['name']
   guest.spouse = request.POST['spouse']
   guest.save()
   return redirect('/')

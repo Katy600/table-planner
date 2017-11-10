@@ -3,16 +3,12 @@
 {% block content %}
 	<form action="/update/{{ guest.id }}" method="post">
 		{% csrf_token %}
-		<label for="name"><input type="text" name="name" id="name"
-			value="{{ guest.name }}" placeholder="{{ guest.name }}"/>
+		<label for="name">Name<input type="text" name="name" id="name"
+			value="{{ guest.first_name }}" placeholder="{{ guest.first_name }}"/>
 		</label>
 		<label for="spouse">Spouse<input type="text" name="spouse"
 		value="{{ guest.spouse }}" placeholder="{{guest.spouse}}"/>
 	  </label>
 	  <input type="submit" value="Update"/>
-		
 	</form>
-		}
-
-
 {% endblock %}
