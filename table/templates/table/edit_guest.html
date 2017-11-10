@@ -1,0 +1,18 @@
+{% extends 'table/base.html' %}
+
+{% block content %}
+	<form action="/update/{{ guest.id }}" method="post">
+		{% csrf_token %}
+		<label for="name"><input type="text" name="name" id="name"
+			value="{{ guest.name }}" placeholder="{{ guest.name }}"/>
+		</label>
+		<label for="spouse">Spouse<input type="text" name="spouse"
+		value="{{ guest.spouse }}" placeholder="{{guest.spouse}}"/>
+	  </label>
+	  <input type="submit" value="Update"/>
+		
+	</form>
+		}
+
+
+{% endblock %}

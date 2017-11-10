@@ -10,6 +10,8 @@ from table.forms import CreateNewGuests
 from django.core import validators
 from django import forms
 from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import TemplateView,ListView
 
 def view_guest_list(request):
   guestlist = GuestList.objects.all()
@@ -53,15 +55,49 @@ def new_guests(request):
       form = CreateNewGuests()
       return render(request, 'enter_guest_details.html', {'form': form, 'error': error})
 
-def delete(request):
-  if 'delete_guest' in request.GET:
-   message = 'You are deleting: %r' % request.GET['delete_guest']
-   guest = request.GET['delete_guest']
-   print('guest', guest)
-   print('message', message)
-   guest_list = GuestList.objects.filter(first_name__icontains=guest).delete()
-   print(guest_list)
-   return render(request, 'table/table_plan.html', {'message': message, 'guest': guest})
+# def delete(request):
+#   if 'delete_guest' in request.GET:
+#    message = 'You are deleting: %r' % request.GET['delete_guest']
+#    guest = request.GET['delete_guest']
+#    print('guest', guest)
+#    print('message', message)
+#    guest_list = GuestList.objects.filter(first_name__icontains=guest).delete()
+#    print(guest_list)
+   # return render(request, 'table/table_plan.html', {'message': message, 'guest': guest})
+
+def delete(request, id):
+  # guest = GuestList.objects.filter(pk=pk)
+  guest = get_object_or_404(GuestList, id=id)
+  print("guest", guest)
+  if request.method=='POST':
+    # guest = GuestList.objects.filter(pk=delete_guest).delete()
+    # print("guest", guest)
+    guest.delete()
+    # return redirect('/')
+    return render(request, 'table/table_plan.html', {'guest':guest})
+
+
+# def guest_edit(request, id, template_name='table/table_plan.html'):
+#     guest = get_object_or_404(GuestList, id=id)
+#     form = CreateNewGuests(request.POST)
+#     if form.is_valid():
+#         form.save()
+#         # return redirect('/')
+#     return render(request, template_name, {'form':form})
+
+def guest_edit(request, id):
+  guest = GuestList.objects.get(id=id)
+  context = {"guest": guest}
+  return render(request, 'table/edit_guest.html', context)
+
+def update(request, id):
+  guest = GuestList.objects.get(id=id)
+  guest.first_name = request.POST['name']
+  guest.spouse = request.POST['spouse']
+  guest.save()
+  return redirect('/')
+
+
 
   # guestlist = GuestList.objects.all()
   # if request.method == 'POST':
